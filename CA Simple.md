@@ -16,7 +16,7 @@ or with more simple command.
 $ openssl genrsa -out CA.key 2048
 ```
 
-> genpkey / genrsa: generated private key
+- `genpkey` / `genrsa`: generated private key
 
 2. Create CA certificate with newly generated private key.
 ```bash
@@ -37,10 +37,10 @@ Common Name (e.g. server FQDN or YOUR name) []:smk3.com
 Email Address []:admin@smk3.com
 ```
 
-> req -x509: generated certificate
-> -key: CA private key
-> -days: 365 * 10 = 3650 days
-> -out: certificate output in pem format
+- `req` -x509: generated certificate
+- `-key`: CA private key
+- `-days`: 365 * 10 = 3650 days
+- `-out`: certificate output in pem format
 
 3. Creating CSR for apache.
 ```bash
@@ -73,10 +73,10 @@ A challenge password []:
 An optional company name []:
 ```
 
-> Enter PEM pass phrase: 4 digit password
-> req -new: creating new request
-> -out: csr output
-> -keyout: private key output
+- `Enter PEM pass phrase`: 4 digit password
+- `req -new`: creating new request
+- `-out`: csr output`
+- `-keyout`: private key output
 
 4. Create v3 extended file.
 ```bash
@@ -91,8 +91,8 @@ DNS.3 = smk3.sch.id
 DNS.4 = blog.rizki.com
 ```
 
-> DNS.n: This is called Subject Alternative Name ( SAN ).
-> SAN is useful for many domains & subdomains in 1 certificate file.
+- `DNS.n`: This is called Subject Alternative Name ( SAN ).
+- SAN is useful for many domains & subdomains in 1 certificate file.
 
 5. Request to CA ( Debian ) with CSR. The CA ( Debian ) will sign it with his private-key + certificate ( *.pem ) file.
 ```bash
@@ -110,11 +110,11 @@ CA.pem
 CA.srl
 ```
 
-> x509 -req: sign new request of certificate by CA
-> -in: input the csr request
-> -CA: input the CA certificate ( CA.pem )
-> -CAkey: input the CA private key ( CA.key )
-> -CAcreateserial: creating serial file. default needed. ( CA.srl )
-> -out: new certificate from csr which one has been signed ( apache.crt )
-> -days: 365 days ( 1 year ) less than CA days ( 10 years )
-> -extfile: include the SAN file.
+- `x509 -req`: sign new request of certificate by CA
+- `-in`: input the csr request
+- `-CA`: input the CA certificate ( CA.pem )
+- `-CAkey`: input the CA private key ( CA.key )
+- `-CAcreateserial`: creating serial file. default needed. ( CA.srl )
+- `-out`: new certificate from csr which one has been signed ( apache.crt )
+- `-days`: 365 days ( 1 year ) less than CA days ( 10 years )
+- `-extfile`: include the SAN file.
