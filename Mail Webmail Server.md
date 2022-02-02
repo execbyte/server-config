@@ -281,7 +281,7 @@ $config['smtp_pass'] = '';
 
 ## Test on client
 1. Open 2 browser `https://mail.tkj.com`.
-	- Usrname browser 1: `john`.
-	  ![roundcube - john](rcube_login.png)
+	- Usrname browser 1: `john`. ![roundcube - john](rcube_login.png)
 	- Usrname browser 2: `boy`.
-2. Test for send email between users.
+2. Test for send email between users ( from `john@mail.tkj.com` to `boy@mail.tkj.com` ). ![roundcube - send](rcube_send.png)
+	
