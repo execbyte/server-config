@@ -260,7 +260,7 @@ MariaDB [roundcube]> show tables;
 14 rows in set (0.001 sec)
 ```
 
-5. Configure rouncube.
+5. Configure roundcube.
 ```bash
 # cd /etc/roundcube
 # nano/vim config.inc.php
@@ -272,3 +272,16 @@ $config['smtp_user'] = '';
 $config['smtp_pass'] = ''; 
 ...
 ```
+
+## Add 2 user on debian for testing
+```bash
+# adduser john
+# adduser boy
+```
+
+## Test on client
+1. Open 2 browser `https://mail.tkj.com`.
+	- Usrname browser 1: `john`.
+	  ![roundcube - john](rcube_login.png)
+	- Usrname browser 2: `boy`.
+2. Test for send email between users.
